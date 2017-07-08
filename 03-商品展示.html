@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 50px auto;
+        }
+        .box ul{
+            overflow: hidden;
+        }
+        .box ul li {
+            line-height: 30px;
+            float: left;
+            width: 150px;
+            text-align: center;
+        }
+        .box p{
+            width: 100px;
+            border: 1px solid #000;
+            padding: 3px;
+            margin: 0 auto;
+
+        }
+    </style>
+    
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+    
+        $(function () {
+    
+            /*第一种方法:让大于2 小于9的隐藏*/
+            /*注意:选择器角标它是从上一个结束位置当做起始点(0)*/
+            //$('li:gt(2):lt(9)').hide();
+
+            /*第二种方法:大于第二个,但不包括最后一个*/
+            $('li:gt(2):not(:last)').hide();
+
+            /*监听p标签点击*/
+            $('p').click(function () {
+
+                /*点击时让中间的那部分内容切换显示隐藏*/
+                $('li:gt(2):not(:last)').slideToggle();
+
+
+                /*判断当前p的文字*/
+                if ($(this).text() == "显示所有内容") {
+                    $(this).text("隐藏其它内容");
+
+                    //$('li:gt(2):not(:last)').slideDown();
+
+                }else {
+                    $(this).text("显示所有内容");
+                    //$('li:gt(2):not(:last)').slideUp();
+                }
+            });
+
+
+        });
+    
+    </script>
+    
+    
+    
+</head>
+<body>
+
+<div class="box">
+    <ul>
+        <li>黎文怡</li>
+        <li>黎文怡</li>
+        <li>黎文怡</li>
+        <li>黎文怡</li>
+        <li>黎文怡</li>
+        <li>黎文怡</li>
+        <li>吃屎吧</li>
+        <li>吃屎吧</li>
+        <li>吃屎吧</li>
+        <li>吃屎吧</li>
+        <li>吃屎吧</li>
+        <li>吃屎吧</li>
+        <li>点开看看</li>
+    </ul>
+    <p>点开看看</p>
+
+</div>
+
+
+
+</body>
+</html>
